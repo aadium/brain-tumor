@@ -31,7 +31,6 @@ I used this dataset: https://www.kaggle.com/datasets/preetviradiya/brian-tumor-d
 ## Key Files
 - `classify.ipynb`: Main workflow for data loading, preprocessing, training, and evaluation.
 - `NeuralNet.py`: Contains the neural network model and training logic.
-- `dataset/`: Place your images here, organized by class.
 
 ## Customization
 - Change `pixels` in the notebook to adjust image size.
