@@ -23,6 +23,8 @@ class CoreFunctions:
     def addBiasBkd(u: np.ndarray, v: np.ndarray, dl_dv: np.ndarray):
         return dl_dv[1:, :]
 
+    # Activation Functions
+
     @staticmethod
     def linearFwd(u: np.ndarray, W: np.ndarray):
         return W @ u
@@ -55,7 +57,9 @@ class CoreFunctions:
         dv_du = y_i * (k - y_j)
                     
         return dv_du.T @ dl_dv
-    
+
+    # Loss Functions
+
     @staticmethod
     def NLLLossFwd(y: np.ndarray, y_prob: np.ndarray):
         return -np.sum(y * np.log(y_prob))
