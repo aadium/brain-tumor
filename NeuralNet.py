@@ -331,3 +331,20 @@ class NeuralNetModel:
     def load_model(self, file_path: str):
         with open(file_path, 'rb') as f:
             self.model = pickle.load(f)
+    
+    def visualize_network(self, X: np.ndarray, is_double: bool = False):
+        if self.model is None:
+            print("No model found. Please train or load a model first.")
+            return
+        
+        N, M = X.shape
+        for i in range(N):
+            Xi = X[i, :].reshape((M, 1))
+            if is_double:
+                forward = self.fwd.DLNN(Xi, self.model['W1'], self.model['W2'], self.model['W3'])
+            else:
+                forward = self.fwd.SLNN(Xi, self.model['W1'], self.model['W2'])
+
+        # Visualize the network
+        for layer in forward:
+            print(f"Layer {layer}: {forward[layer]}")
